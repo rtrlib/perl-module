@@ -1,0 +1,6 @@
+Revision history for Perl extension RPKI::RTRlib.
+
+0.01  Mon Jun 30 14:22:59 2014
+	- original version; created by h2xs 1.23 with options
+		-A -n RPKI::RTRlib
+
