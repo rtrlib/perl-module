@@ -55,10 +55,12 @@ The RTRlib is an open-source C implementation of the RPKI/Router Protocol client
 	
 
 =head2 start(host, port) 
+
 start the rtrclient and connect to RTR-cache and return a config. It is used an unprotected TCP-Connection.
 (see: int rtr_mgr_start  http://rpki.realmv6.org/doxygen/group__mod__rtr__mgr__h.html#ga665089d8c882e94f0f0f1a8bdf7b15a4)
 
 =head2 validate(conf, asn, ipAddr, cidr) 
+
 validates the origin of a BGP-Route and return the RPKI-State
 (see: int pfx_table_validate  http://rpki.realmv6.org/doxygen/group__mod__pfx__h.html#ga9b7eda6712d0c9c45cc7c0ca40196689)
 
@@ -68,6 +70,7 @@ return integer
  - 2 -->Invalid
 
 =head2 validate_r(conf, asn, ipAddr,cidr)
+
 validates the origin of a BGP-Route and returns a list of ROAs that decided the result.
 (see: int pfx_table_validate_r  http://rpki.realmv6.org/doxygen/group__mod__pfx__h.html#gac5ca36243c500ddfbf079c9d83f7792f)
 
@@ -80,6 +83,7 @@ returns a hash:
 	- max -->maximal prefix length
 
 =head2 stop(conf)
+
 terminates all connections that are defined in the config. 
 (see: void rtr_mgr_stop  http://rpki.realmv6.org/doxygen/group__mod__rtr__mgr__h.html#ga20fc681b1872ccf9fa8961dd21584d91)
 
@@ -96,7 +100,7 @@ http://rpki.realmv6.org/wiki/Documentation
 
 =head1 AUTHOR
 
-Robert Schmidt, E<lt>rs.schmidt@fu-berlin.de@<gt>
+Robert Schmidt, rs.schmidt@fu-berlin.de
 
 =head1 COPYRIGHT AND LICENSE
 

@@ -1,2 +1,2 @@
 TYPEMAP
-rtr_mgr_config * T_PTRREF
+struct rtr_mgr_config * T_PTRREF
