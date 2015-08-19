@@ -1,5 +1,5 @@
-RPKI-RTRlib version 0.01
-========================
+RPKI-RTRlib
+===========
 
 RPKI::RTRlib provides a simple interface to RTRlib (http://rpki.realmv6.org/). 
 The RTRlib is an open-source C implementation of the RPKI/Router Protocol client. The library allows to fetch and store validated prefix origin data from a RTR-cache and performs origin verification of prefixes.
