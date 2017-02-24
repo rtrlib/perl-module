@@ -42,7 +42,7 @@ start(host, port)
     //create a rtr_mgr_config struct that stores the group
 	//initialize all rtr_sockets in the server pool with the same settings
 	struct rtr_mgr_config *conf = malloc(sizeof(struct rtr_mgr_config));
-	conf = rtr_mgr_init(groups, 1, 240, 520, NULL, NULL, NULL, NULL);
+	int ret = rtr_mgr_init(&conf, groups, 1, 30, 600, 600, NULL, NULL, NULL, NULL);
 	
 	//start the connection manager
     rtr_mgr_start(conf);
@@ -61,8 +61,8 @@ validate(conf, asn,ipAddr, cidr)
     char* ipAddr;
     int cidr;
     CODE:
-    struct ip_addr pref;
-    ip_str_to_addr(ipAddr, &pref);
+    struct lrtr_ip_addr pref;
+    lrtr_ip_str_to_addr(ipAddr, &pref);
     enum pfxv_state result;
     
     rtr_mgr_validate(conf, asn, &pref, cidr, &result);
@@ -86,10 +86,10 @@ validate_r(conf, asn,ipAddr,cidr)
     alist = (AV *) sv_2mortal ((SV *) newAV());
     
     CODE:
-    struct ip_addr pref;
-    ip_str_to_addr(ipAddr, &pref);
+    struct lrtr_ip_addr pref;
+    lrtr_ip_str_to_addr(ipAddr, &pref);
     struct pfx_record *reason = malloc(sizeof(struct pfx_record));
-    int *reason_len = malloc(sizeof(int));
+    unsigned int *reason_len = malloc(sizeof(unsigned int));
     enum pfxv_state result;
     pfx_table_validate_r(conf->groups[0].sockets[0]->pfx_table,&reason,reason_len, asn, &pref, cidr, &result);
     
