@@ -98,7 +98,7 @@ validate_r(conf, asn,ipAddr,cidr)
     int i;
     for(i=0;i<(*reason_len);i++){
         char stripAddr[INET6_ADDRSTRLEN];
-        ip_addr_to_str(&reason[i].prefix,stripAddr,INET6_ADDRSTRLEN);
+        lrtr_ip_addr_to_str(&reason[i].prefix,stripAddr,INET6_ADDRSTRLEN);
         HV * roa = (HV *) sv_2mortal((SV *)newHV());
         hv_store(roa,"asn",3,newSViv(reason[i].asn),0);
         hv_store(roa,"max",3,newSViv(reason[i].max_len),0);
